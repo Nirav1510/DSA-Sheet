@@ -23,3 +23,35 @@ vector<int> topView(Node *root)
     }
     return ans;
 }
+
+// Iterative
+
+vector<int> top_view(TreeNode *root)
+{
+    if (root == NULL)
+        return;
+    queue<pair<TreeNode *, int>> q;
+    q.push({root, 0});
+    map<int, char> m;
+
+    while (!q.empty())
+    {
+        TreeNode *curr = q.front().first;
+        int dist = q.front().second;
+        q.pop();
+
+        if (m.count(dist) == 0)
+            m[dist] = curr->val;
+
+        if (curr->left != NULL)
+            q.push({curr->left, dist - 1});
+        if (curr->right != NULL)
+            q.push({curr->right, dist + 1});
+    }
+    vector<int> ans;
+    for (auto i : m)
+    {
+        ans.push_back(i.second);
+    }
+    return ans;
+}
