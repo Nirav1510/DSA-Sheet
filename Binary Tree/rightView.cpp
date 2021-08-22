@@ -1,0 +1,22 @@
+vector<int> ans;
+int maxlevel;
+void solve(Node *root, int level)
+{
+    if (!root)
+        return;
+    if (level > maxlevel)
+    {
+        ans.push_back(root->data);
+        maxlevel = level;
+    }
+    solve(root->right, level + 1);
+    solve(root->left, level + 1);
+}
+
+vector<int> rightView(Node *root)
+{
+    ans.clear();
+    maxlevel = -1;
+    solve(root, 0);
+    return ans;
+}
