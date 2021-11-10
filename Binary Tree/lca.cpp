@@ -15,5 +15,3 @@ Node *lca(Node *root, int a, int b)
         return root;
     return (l) ? l : r;
 }
-}
-;
