@@ -1,6 +1,6 @@
 void threeWayPartition(vector<int> &v, int a, int b)
 {
-    //variation of dutch national flag problem
+    // variation of dutch national flag problem
     int n = v.size();
     int low = 0, high = n - 1, mid = 0;
 
